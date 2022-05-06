@@ -41,9 +41,9 @@ export default {
       Resort:
      <p> <input type="text" v-model="newPostParams.resort" /> </p>
      Runs:
-     <p> <input type="text" v-model="newPostParams.title" /> </p>
+     <p> <input type="text" v-model="newPostParams.runs_taken" /> </p>
     
-      <button v-on:click="newPost()">Create post</button>
+      <button v-on:click="newPost()"><a href="/posts">Create Post</a></button>
     </div>
  
     

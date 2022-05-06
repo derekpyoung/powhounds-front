@@ -13,8 +13,9 @@
     methods: {
       indexPosts: function () {
         axios.get("http://localhost:3000/posts").then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           this.posts = response.data
+          // console.log(posts);
         })
       }
     },
@@ -25,7 +26,8 @@
   <div class="posts">
     <h1>{{ message }}</h1>
     <div v-for="post in posts" v-bind:key="post.id">
-      <img v-bind:src="post.photo">
+    <p>{{post.user_id}}</p>
+      <img v-bind:src="post.photo" alt="">
       <h1>{{post.id}}) {{post.title}}- {{post.description}}  <br>
         <a class="center btn btn-outline-primary" v-bind:href="`/posts/${post.id}`" role="button">More Info</a>
       </h1>
@@ -33,4 +35,6 @@
   </div>
 </template>
 
-<style></style>
+<style>
+
+</style>
