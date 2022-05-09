@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import PostsShowView from '../views/PostsShowView'
 import PostsCreateView from '../views/PostCreateView'
 import UserIndexView from '../views/UserIndexView'
-// import UserShowView from '..views/UserShowView'
+import UserShowView from '../views/UserShowView.vue'
 import LogInView from '../views/LogInView'
 import LogOutView from '../views/LogOutView'
 import SignUpView from '../views/SignUpView'
@@ -36,11 +36,11 @@ const routes = [
     name: 'users-index',
     component: UserIndexView
   },
-  // {
-  //   path: '/users/:id',
-  //   name: 'users-show',
-  //   component: UserShowView
-  // },
+  {
+    path: '/users/:id',
+    name: 'users-show',
+    component: UserShowView
+  },
   {
     path: '/posts/new',
     name: 'new-posts',

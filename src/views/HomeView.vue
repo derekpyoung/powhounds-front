@@ -4,7 +4,8 @@
     data: function () {
       return {
         posts: [],
-        message: "posts Page",
+        message: "Posts",
+        users: [],
       };
     },
     created: function () {
@@ -25,9 +26,9 @@
 <template>
   <div class="posts">
     <h1>{{ message }}</h1>
-    <div v-for="post in posts" v-bind:key="post.id">
-    <p>{{post.user_id}}</p>
-      <img v-bind:src="post.photo" alt="">
+    <div v-for="post in posts.slice().reverse()" v-bind:key="post.user_id">
+    <p>{{ post.user_id }}</p>
+      <img v-bind:src="post.photo" class="post-photo-index" alt="">
       <h1>{{post.id}}) {{post.title}}- {{post.description}}  <br>
         <a class="center btn btn-outline-primary" v-bind:href="`/posts/${post.id}`" role="button">More Info</a>
       </h1>
@@ -36,5 +37,9 @@
 </template>
 
 <style>
+.post-photo-index {
+  border-radius: 25%;
+  width: 74%;
+}
 
 </style>

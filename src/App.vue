@@ -1,3 +1,21 @@
+<script>
+export default {
+  data: function() {
+    return {
+      isLoggedIn: false      
+    }
+  },
+  watch: {
+    $route: function() {
+      this.isLoggedIn = !!localStorage.jwt;
+    }
+  }
+}
+</script>
+
+
+
+
 <template>
   <nav>
     <router-link to="/posts">Posts</router-link> |
@@ -9,7 +27,7 @@
     <router-link to="/signup">SignUp</router-link> |
     
   </nav>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/posts">Posts</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -20,16 +38,16 @@
         <a class="nav-link" href="/users">Users <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/signup">Sign Up</a>
+        <a v-if="!isLoggedIn" class="nav-link" href="/signup">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/posts/new">New Post</a>
+        <a v-if="isLoggedIn" class="nav-link" href="/posts/new">New Post</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
+        <a v-if="!isLoggedIn" class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="/logout">Logout</a>
+        <a v-if="isLoggedIn" class="nav-link" href="/logout">Logout</a>
       </li>
     </ul>
   </div>
@@ -44,7 +62,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #264C83;
+  
+  /* background: #264C83; */
+}
+.nav-bar {
+  background: black;
+  color: red;
 }
 
 nav {

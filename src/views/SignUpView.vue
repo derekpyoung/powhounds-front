@@ -14,7 +14,7 @@
           .post("/users", this.newUserParams)
           .then((response) => {
             console.log(response.data);
-            this.$router.push("/login");
+            this.$router.push("/users/" + this.newUserParams.id);
           })
           .catch((error) => {
             this.errors = error.response.data.errors;
@@ -34,6 +34,10 @@
       <div>
         <label>Name:</label>
         <input type="text" v-model="newUserParams.name" />
+      </div>
+      <div>
+        <label>Photo Url:</label>
+        <input type="text" v-model="newUserParams.profile_picture" />
       </div>
       <div>
         <label>Email:</label>

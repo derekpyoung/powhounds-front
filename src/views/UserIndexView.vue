@@ -4,7 +4,7 @@
     data: function () {
       return {
         users: [],
-        message: "Users Page",
+        message: "Users",
       };
     },
     created: function () {
@@ -18,6 +18,7 @@
         })
       }
     },
+   
   };
 </script>
 
@@ -25,17 +26,34 @@
 
   <div class="posts">
     <h1>{{ message }}</h1>
-    <div v-for="user in users" v-bind:key="user.id">
+    <div v-for="user in users.sort()" v-bind:key="user.id">
       <!-- <img v-bind:src="post.photo"> -->
-      <h1>{{user.name}}   </h1><br>
+      <h1>  {{user.id}}) {{user.name}}   </h1><br>
+       <img class="profile-img" v-bind:src="user.profile_picture" alt="">  <br>
       
-      
+      <br>
      
-     <a class="center btn btn-outline-primary" v-bind:href="`/userposts/${user.id}`" role="button">{{user.name}}'s Posts</a>
+     
+        <a class="center btn btn-outline-primary" v-bind:href="`/userposts/${user.id}`" role="button">{{user.name}}'s Posts</a>
+     
+
+     <a class="center btn btn-outline-primary" v-bind:href="`/users/${user.id}`" role="button">{{user.name}}'s Profile</a>
+     <br>
+     <br>
     </div>
   </div>
 </template>
 
 <style>
+.profile-img {
+  width:auto;
+  height: 250px;
+  width: 250px;
+  
+  
+  
+  border-radius: 50%;
+
+}
 
 </style>
