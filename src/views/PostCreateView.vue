@@ -24,6 +24,7 @@ export default {
           console.log("post create error", error.response);
         });
     },
+ 
   },
 };
 </script>
@@ -31,6 +32,7 @@ export default {
 <template>
   <div class="home">
     <h1>New Post</h1>
+    <!-- <img class="current_thumb" v-bind:src="user.profile_picture" alt="profile"> -->
     <div>
       Title:
      <p> <input type="text" v-model="newPostParams.title" /> </p>
@@ -43,10 +45,17 @@ export default {
      Runs:
      <p> <input type="text" v-model="newPostParams.runs_taken" /> </p>
     
-      <button v-on:click="newPost()"><a href="/posts">Create Post</a></button>
+      <button class="btn btn-outline-primary" v-on:click="newPost()" href="/posts"></button>
     </div>
  
     
   </div>
 </template>
-<style></style>
+<style>
+.btn{
+  color: red;
+}
+.btn:hover {
+  color: white;
+}
+</style>

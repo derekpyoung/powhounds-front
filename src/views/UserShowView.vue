@@ -31,7 +31,6 @@
           .catch((error) => {
             console.log("user update error", error.response);
           });
-        console.log("inside update user");
       },
     },
 

@@ -23,26 +23,19 @@
           this.resort_query = this.resort.replace(/ +/g, "");
           console.log( this.resort_query);
           // console.log(this.resort);
-          this.freshSnowfall();
+          // this.freshSnowfall();
           this.getUser();
           
         }
 
         )
       },
-      freshSnowfall: function () {
-        axios.get(`http://localhost:3000/forecast?resort=${this.resort_query}`).then(response => {
-          // console.log(response.data);
-          this.weather = response.data
-          console.log(this.weather);
-         
-       
-        })
-      },
+   
       getUser: function () {
-        axios.get(`http://localhost:3000/users/${this.post.user_id}`.json).then(response => {
-          this.user = response.data 
+        axios.get(`http://localhost:3000/users/${this.post.user_id}`).then(response => {
+          this.user = response.data
           console.log(this.user);
+     
         })
       },
       deletePost: function () {
@@ -81,16 +74,25 @@
   </div> -->
   <div class="card-container">
     <div class="card card-border-light row-justify-content-center" style="width: 50rem;">
+    <br> 
+    <br>
+     <h1 class="list-group-item"><img class="thumb-nail" v-bind:src="user.profile_picture" alt="profile"> {{ user.name.toUpperCase()}} </h1>
+      
       <img class="card-img-top" v-bind:src="post.photo" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{post.title}}</h5>
+      
       </div>
 
       <ul class="list-group list-group-flush">
+       
         <li class="list-group-item">Description: {{post.description}}</li>
         <li class="list-group-item">Resort: {{post.resort}}</li>
         <li class="list-group-item">Runs: {{post.runs_taken}}</li>
-        <li class="list-group-item">SnowFall: {{ weather["freshSnowfall"] }}</li>
+        <li class="list-group-item">SnowFall: {{ post.snow }}</li>
+        
+        
+    
       </ul>
       <div class="card-body">
        <a href="/posts" class="btn btn-primary">Back</a> <p></p>
@@ -106,7 +108,11 @@
 .card {
  display: flex;
  justify-content: center;
+ border: 0px solid white !important;
 
+}
+.list-group-item{
+  border: 0px solid white !important;
 }
 .card-container{
   display: flex;
@@ -120,7 +126,7 @@ h2 {
   color: #3E5C6B;
 }
 img{
-  /* border-radius: 20%; */
+  box-shadow: 2px 2px #7B668C;
   width: 50%;
 }
 button {
@@ -131,6 +137,11 @@ button {
   border-radius: 50%;
   height: auto;
   width: 10%;
+}
+.thumb-nail {
+  height: auto;
+  max-width: 20%;
+  border-radius: 50%;
 }
 </style>
 
