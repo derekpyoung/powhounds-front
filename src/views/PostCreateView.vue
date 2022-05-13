@@ -7,24 +7,32 @@ export default {
       newPostParams: {},
     };
   },
-  created: function () {
-  //  this.newPost();
-  },
+  created: function () {},
   methods: {
-  
-    newPost: function () {
-      axios
-        .post("/posts", this.newPostParams)
-        .then((response) => {
-          console.log("post create", response);
-          this.posts.push(response.data);
-          this.newPostParams = {};
-        })
-        .catch((error) => {
-          console.log("post create error", error.response);
-        });
+    setFile: function(event) {
+      if (event.target.files.length > 0) {
+        this.photo = event.target.files[0];
+      }
     },
- 
+    submit: function() {
+      var formData = new FormData();
+      formData.append("title", this.newPostParams.title);
+      formData.append("description", this.newPostParams.description);
+      formData.append("resort", this.newPostParams.resort);
+      formData.append("runs_taken", this.newPostParams.runs_taken);
+      formData.append("photo", this.photo);
+      // debugger; 
+  
+      axios.post("/posts", formData).then(response => {
+        console.log(response);
+        this.title = formData.title;
+        this.description = formData.description;
+        this.resort = formData.resort;
+        this.runs_taken = formData.runs_taken,
+        this.$refs.fileInput.value = "";
+      })
+      this.$router.push("/posts")
+    }
   },
 };
 </script>
@@ -39,13 +47,13 @@ export default {
       Description:
       <p><input type="text" v-model="newPostParams.description" /> </p>
       Photo:
-      <p><input type="text" v-model="newPostParams.photo" /> </p>
+      <p><input type="file" v-on:change="setFile($event)" name="photo" /> </p>
       Resort:
      <p> <input type="text" v-model="newPostParams.resort" /> </p>
-     Runs:
+     Runs taken:
      <p> <input type="text" v-model="newPostParams.runs_taken" /> </p>
     
-      <button class="btn btn-outline-primary" v-on:click="newPost()" href="/posts"></button>
+      <button class="btn btn-outline-primary" v-on:click="submit()" href="/posts">Submit</button>
     </div>
  
     

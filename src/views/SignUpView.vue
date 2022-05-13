@@ -1,27 +1,40 @@
 <script>
-  import axios from "axios";
+import axios from "axios";
+export default {
+  data: function () {
+    return {
+      newUserParams: {},
+      errors: [],
+    };
+  },
+  created: function () {},
+  methods: {
+    setFile: function(event) {
+      if (event.target.files.length > 0) {
+        this.profile_picture = event.target.files[0];
+      }
+    },
+    submit: function() {
+      var formData = new FormData();
+      formData.append("name", this.newUserParams.name);
+      formData.append("email", this.newUserParams.email);
+      formData.append("password", this.newUserParams.password);
+      formData.append("password_confirmation", this.newUserParams.password_confirmation);
+      formData.append("profile_picture", this.profile_picture);
+      
 
-  export default {
-    data: function () {
-      return {
-        newUserParams: {},
-        errors: [],
-      };
-    },
-    methods: {
-      submit: function () {
-        axios
-          .post("/users", this.newUserParams)
-          .then((response) => {
-            console.log(response.data);
-            this.$router.push("/users/" + this.newUserParams.id);
-          })
-          .catch((error) => {
-            this.errors = error.response.data.errors;
-          });
-      },
-    },
-  };
+      axios.post("/users", formData).then(response => {
+        console.log(response);
+        this.name = formData.name;
+        this.email = formData.email;
+        this.password = formData.password;
+        this.password_confirmation = formData.password_confirmation;
+        this.$refs.fileInput.value = "";
+      })
+    }  
+  }
+};
+
 </script>
 
 <template>
@@ -36,8 +49,8 @@
         <input type="text" v-model="newUserParams.name" />
       </div>
       <div>
-        <label>Photo Url:</label>
-        <input type="text" v-model="newUserParams.profile_picture" />
+        <label>Photo:</label>
+        <input type="file" v-on:change="setFile($event)" name="profile_picture" ref="fileInput" />
       </div>
       <div>
         <label>Email:</label>

@@ -63,7 +63,7 @@
       
      <p> {{post.description}} </p>
       <p>resort: {{post.resort}}</p>
-      <p>runs taken: {{post.runs_taken}} </p>
+     
       <p>fresh pow: {{ weather["freshSnowfall"] }}</p>
       <a href="/posts">back</a> <br>
       <button v-on:click="deletePost()">Delete Post</button>
@@ -76,23 +76,26 @@
     <div class="card card-border-light row-justify-content-center" style="width: 50rem;">
     <br> 
     <br>
-     <h1 class="list-group-item"><img class="thumb-nail" v-bind:src="user.profile_picture" alt="profile"> {{ user.name.toUpperCase()}} </h1>
-      
-      <img class="card-img-top" v-bind:src="post.photo" alt="Card image cap">
+    <div class="profile-picture-container">
+      <h1 class="list-group-item">
+        <a v-bind:href="`/userposts/${user.id}`" ><img class="thumb-nail" v-bind:src="user.profile_picture" alt="profile"></a>
+        {{ user.name.toUpperCase()}} </h1>
+
+    </div>
+    <h3>{{post.title}}</h3>
+      <div class="post-image-container">
+        <img class="card-img-top" v-bind:src="post.photo" alt="Card image cap">
+      </div>
       <div class="card-body">
-        <h5 class="card-title">{{post.title}}</h5>
+        <!-- <h5 class="card-title">{{post.title}}</h5> -->
       
       </div>
 
       <ul class="list-group list-group-flush">
-       
         <li class="list-group-item">Description: {{post.description}}</li>
         <li class="list-group-item">Resort: {{post.resort}}</li>
-        <li class="list-group-item">Runs: {{post.runs_taken}}</li>
+        <li class="list-group-item">Runs Taken: {{post.runs_taken}}</li>
         <li class="list-group-item">SnowFall: {{ post.snow }}</li>
-        
-        
-    
       </ul>
       <div class="card-body">
        <a href="/posts" class="btn btn-primary">Back</a> <p></p>
@@ -113,11 +116,15 @@
 }
 .list-group-item{
   border: 0px solid white !important;
+  float: left;
+
 }
+
 .card-container{
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 h1{
   color: grey;
@@ -125,23 +132,35 @@ h1{
 h2 {
   color: #3E5C6B;
 }
-img{
+
+.card-img-top{
   box-shadow: 2px 2px #7B668C;
-  width: 50%;
+  
+  height: auto;
+  width: auto;
+  
 }
 button {
   padding: 2px;
 }
 
-.profile-pic {
-  border-radius: 50%;
-  height: auto;
-  width: 10%;
-}
+
 .thumb-nail {
-  height: auto;
-  max-width: 20%;
+  /* width:auto; */
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
+  float: left;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.post-image-container {
+  width: 90%;
+  justify-content: center;
+  align-self: center;
+ 
 }
 </style>
 

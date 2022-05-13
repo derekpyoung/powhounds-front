@@ -49,11 +49,7 @@
   width:auto;
   height: 250px;
   width: 250px;
-  
-  
-  
   border-radius: 50%;
-
 }
 
 </style>
