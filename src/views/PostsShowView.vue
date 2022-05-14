@@ -84,7 +84,7 @@
     </div>
     <h3>{{post.title}}</h3>
       <div class="post-image-container">
-        <img class="card-img-top" v-bind:src="post.photo" alt="Card image cap">
+        <img class="post-image-class" v-bind:src="post.photo" alt="Card image cap">
       </div>
       <div class="card-body">
         <!-- <h5 class="card-title">{{post.title}}</h5> -->
@@ -133,13 +133,12 @@ h2 {
   color: #3E5C6B;
 }
 
-.card-img-top{
-  box-shadow: 2px 2px #7B668C;
-  
-  height: auto;
-  width: auto;
-  
-}
+.post-image-class{
+  height: 700px;
+  width: 500px;
+  object-fit: scale-down; 
+} 
+
 button {
   padding: 2px;
 }
@@ -156,11 +155,10 @@ button {
   -o-border-radius: 50%;
 }
 
-.post-image-container {
+.post-image-container{
   width: 90%;
   justify-content: center;
   align-self: center;
- 
 }
 </style>
 

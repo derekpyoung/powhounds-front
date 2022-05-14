@@ -11,6 +11,7 @@ export default {
     }
   }
 }
+
 </script>
 
 
@@ -18,12 +19,13 @@ export default {
 
 <template>
 <!-- old links -->
+
   <nav>
-    <router-link to="/posts">Posts</router-link> |
-    <router-link to="/about">About</router-link>| 
+    <router-link to="/posts">Feed</router-link> |
     <router-link to="/posts/new">New Post</router-link>|
     <router-link to="/users">Users</router-link> |
     <router-link to="/login">Login</router-link> |
+    <router-link to="/home">Home</router-link> |
     <router-link to="/logout">Logout</router-link> | 
     <router-link to="/signup">SignUp</router-link> |
     
@@ -66,7 +68,7 @@ export default {
   <!-- old bootstrap nav -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/posts">Posts</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -94,15 +96,15 @@ export default {
 </template>
 
 <style>
-#app {
+ #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   
-  /* background: #264C83; */
-}
+   /* background: #264C83;  */
+} 
 .nav-bar {
   background: black;
   color: red;

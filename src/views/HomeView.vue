@@ -4,7 +4,7 @@
     data: function () {
       return {
         posts: [],
-        message: "Posts",
+        message: "Feed",
         users: [],
         user: {},
       };
@@ -34,23 +34,31 @@
     <div v-for="post in posts.slice().reverse()" v-bind:key="post.user_id">
      <!-- <img class="thumb-nail" v-bind:src=" user.profile_picture" alt="profile"> -->
      <a v-bind:href="`/posts/${post.id}`"> <img v-bind:src="post.photo" class="post-photo-index" alt=""> </a>
-      <h1>{{post.id}}) {{post.title}}- {{post.description}}  <br>
+      <h1 class="text-area">{{post.id}}) {{post.title}}- {{post.description}}  <br>
         <a class="center btn btn-outline-primary" v-bind:href="`/posts/${post.id}`" 
-        role="button">More Info</a>
-       <i class="fa-solid fa-user"></i>
+        role="button">Full Post</a>
+        <br>
+       
       </h1>
     </div>
   </div>
 </template>
 
 <style>
+.text-area {
+  border-bottom: 1px dashed #CCF0FF;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+}
 .post-photo-index {
-  border-radius: 25%;
-  width: 74%;
+  height: 700px;
+  width: 500px;
+  object-fit: scale-down;
 }
-img {
-  height: auto;
-  width: 75%;
+.posts{
+  
+  /* background-image: linear-gradient(#B5D1FF,#FCFCFC); */
 }
+
 
 </style>

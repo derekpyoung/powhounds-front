@@ -46,7 +46,7 @@
 </div>
   <div class="posts" v-for="post in posts.slice().reverse()" v-bind:key="post.user_id">
     <h2> {{ post.title}}</h2>
-    <img v-bind:src="post.photo" alt="">  
+    <img class="image-post-index" v-bind:src="post.photo" alt="">  
     <p>{{post.description}}</p>
     <p>{{post.resort}}</p>  
     <p>{{post.freshSnowfall}}</p> 
@@ -55,6 +55,8 @@
      <br>
   </div>
    <a class="center btn btn-outline-primary" v-bind:href="`/posts/`" role="button">Back to Posts</a>
+   <br>
+   <br>
 </template>
 
 <style>
@@ -74,4 +76,10 @@
   -o-border-radius: 50%;
 
 }
+
+.image-post-index{
+  height: 800px;
+  width: 600px;
+  object-fit: scale-down; 
+} 
 </style>

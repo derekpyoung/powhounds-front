@@ -75,6 +75,10 @@ export default {
     <p><input type="string" v-model="editUserParams.email" /> </p>
     Edit Profile Picture:
     <p><input type="file"  v-on:change="setFile($event)"  name="profile_picture" /> </p>
+     Edit Password:
+    <p> <input type="password"  v-model="editUserParams.password" /> </p>
+    Confirm Password:
+    <p> <input type="password"  v-model="editUserParams.password_confirmation" /> </p>
 
     <button class="btn btn-outline-primary" v-on:click="submit(editUserParams)">
 
