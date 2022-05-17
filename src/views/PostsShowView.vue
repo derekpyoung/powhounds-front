@@ -82,7 +82,7 @@
         {{ user.name.toUpperCase()}} </h1>
 
     </div>
-    <h3>{{post.title}}</h3>
+    <h3>{{post.title.toUpperCase()}}</h3>
       <div class="post-image-container">
         <img class="post-image-class" v-bind:src="post.photo" alt="Card image cap">
       </div>
@@ -92,15 +92,16 @@
       </div>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Description: {{post.description}}</li>
-        <li class="list-group-item">Resort: {{post.resort}}</li>
-        <li class="list-group-item">Runs Taken: {{post.runs_taken}}</li>
-        <li class="list-group-item">SnowFall: {{ post.snow }}</li>
+        <li class="list-group-item"><h6>Description:</h6> {{post.description}}</li>
+        <li class="list-group-item"><h6>Resort:</h6> {{post.resort.toUpperCase()}}</li>
+        <li class="list-group-item"><h6>Runs Taken:</h6> {{post.runs_taken}}</li>
+        <li class="list-group-item"><h6>SnowFall:</h6> {{ post.snow }}</li>
       </ul>
       <div class="card-body">
+         
        <a href="/posts" class="btn btn-primary">Back</a> <p></p>
-      
-        <button v-on:click="deletePost()" class="btn btn-danger">Delete Post</button>
+       
+        <button v-on:click="deletePost()" class="btn btn-danger" href="/posts">Delete Post</button>
       </div>
     </div>
   </div>
@@ -112,6 +113,7 @@
  display: flex;
  justify-content: center;
  border: 0px solid white !important;
+ /* background-color: rgba(255, 255, 255, 0.9); */
 
 }
 .list-group-item{
@@ -119,6 +121,7 @@
   float: left;
 
 }
+
 
 .card-container{
   display: flex;

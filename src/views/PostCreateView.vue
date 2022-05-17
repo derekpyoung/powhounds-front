@@ -60,10 +60,6 @@ export default {
   </div>
 </template>
 <style>
-.btn{
-  color: red;
-}
-.btn:hover {
-  color: white;
-}
+
+
 </style>

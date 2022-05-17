@@ -63,7 +63,7 @@ export default {
       </h1>
       <img class="profile-show" v-bind:src="editUserParams.profile_picture" alt="pic">
       <h2>
-        <p>{{editUserParams.email}}</p>
+        <p>{{editUserParams.email}}</p> <br>
       </h2>
     </div>
   </div>
@@ -90,7 +90,7 @@ export default {
 <style>
   .profile-show {
 
-    width: 50%;
+    width: 25%;
     height: auto;
     border-radius: 50%;
   }
