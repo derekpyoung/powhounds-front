@@ -35,18 +35,40 @@
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="newSessionParams.email" />
+      <div class="login-container">
+        <div class="login-item">
+          <label>Email:</label>
+          <input type="email" v-model="newSessionParams.email" />
+        </div>
+        <br>
+        <div class="login-item">
+          <label>Password:</label>
+          <input type="password" v-model="newSessionParams.password" />
+        </div>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="newSessionParams.password" />
-      </div>
+      <br>
+      <br>
       <input type="submit" value="Submit" />
     </form>
   </div>
 </template>
 <style>
+  .login {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .login-container {
+    width: 300px;
+    align-self: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .login-item {
+    justify-content: center;
+    float:right;
+    
+
+  }
   
 </style>

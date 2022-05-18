@@ -44,27 +44,76 @@ export default {
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div>
-        <label>Name:</label>
-        <input type="text" v-model="newUserParams.name" />
+
+      <div class="input-box">
+        <div class="input-item">
+          <label>Name:</label> 
+          <input type="text" v-model="newUserParams.name" /> 
+        </div>
+        <br>
+        
+        <div class="input-item">
+          <label>Email:</label>
+          <input type="password" v-model="newUserParams.email" />
+        </div>
+          <div class="input-item">
+            <label>Password:</label>
+            <input type="password" v-model="newUserParams.password" />
+          </div>
+        <div class="input-item">
+          <label>Confirm Password:</label>
+          <input type="password" v-model="newUserParams.password_confirmation" />
+        </div>
+        <div class=" input-file">
+          <label>Photo:</label>
+          <input type="file" v-on:change="setFile($event)" name="profile_picture" ref="fileInput" />
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <input class="btn sub-btn btn-outline-secondary" type="submit" value="Submit" />
       </div>
-      <div>
-        <label>Photo:</label>
-        <input type="file" v-on:change="setFile($event)" name="profile_picture" ref="fileInput" />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="newUserParams.email" />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="newUserParams.password" />
-      </div>
-      <div>
-        <label>Password confirmation:</label>
-        <input type="password" v-model="newUserParams.password_confirmation" />
-      </div>
-      <input type="submit" value="Submit" />
     </form>
   </div>
 </template>
+<style>
+
+
+
+.signup{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.input-box{
+  margin: auto;
+  padding: 10px;
+  max-width: 400px;
+  
+}
+
+.input-item{
+  float: right;
+  min-width: 200px;
+}
+.input-file {
+  float: right;
+  margin-right: -120px;
+  
+  
+ 
+}
+.sub-btn {
+  justify-content: bottom;
+  
+}
+
+.footer {
+  bottom: 0;
+  flex: 1 0 auto;
+}
+</style>

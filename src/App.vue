@@ -18,24 +18,16 @@ export default {
 
 
 <template>
-<!-- old links -->
 
-  <!-- <nav>
-    <router-link to="/posts">Feed</router-link> |
+    <!-- <router-link to="/posts">Feed</router-link> |
     <router-link to="/posts/new">New Post</router-link> |
     <router-link to="/users">Users</router-link> |
     <router-link to="/login">Login</router-link> |
     <router-link to="/home">Home</router-link> |
     <router-link to="/logout">Logout</router-link> | 
-    <router-link to="/signup">SignUp</router-link> |
-    
-  </nav> -->
- 
+    <router-link to="/signup">SignUp</router-link> | -->
 
-<!-- <div class="above-nav">
-     <img class="nav-logo" src="../assets/pow.png">
-    
-</div> -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/posts">Feed</a>
@@ -69,13 +61,13 @@ export default {
 
   <router-view/>
 
-  <footer class="foot bg-light text-center text-lg-start">
+<footer class="footer bg-light text-center text-lg-start">
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="foot text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 Copyright:
-    <a class="text-dark" href="https://linkedin.com/in/derekpyoung12">Derek Young</a>
+      <a class="text-dark" href="https://linkedin.com/in/derekpyoung12">Derek Young</a>
  
-  </div>
+     </div>
   <!-- Copyright -->
 </footer>
 </template>
@@ -86,15 +78,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  position: relative;
   color: #2c3e50;
   background-image: url("https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFja2dyb3VuZCUyMHdoaXRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60");
-  width: 100vw;
-  height: 100%;
-  /* overflow: hidden; */
-  /* background-size: cover;
-  background-repeat: no-repeat; */
-  /* width: auto; */
-
+  min-height: 100vh;
+  /* min-height: 100%; */
+  /* overflow: auto ;  */
+  background-size: auto;
+  background-repeat: repeat;   
 } 
 
 
@@ -104,8 +95,6 @@ nav {
 }
 h1{
   font-family: 'Koulen', cursive;
-
-  color: #2c3e50
 }
 
 nav a {
@@ -117,14 +106,23 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-.foot{
+.footer{
   color: #024C7D;
-  bottom: 0px;
- 
-  overflow: hidden;
-  position: static;
+  position: relative;
+  background-color: purple !important;
   align-items: center;
+  bottom: 0;
+  left: 0;
+  text-align: center;
   width: 100%;
+  
+}
+
+img:hover {
+  filter: brightness(100%);
+}
+img{
+  filter: brightness(90%);
 }
 
 </style>

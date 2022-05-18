@@ -39,27 +39,38 @@ export default {
 
 <template>
   <div class="home">
-    <h1>New Post</h1>
-    <!-- <img class="current_thumb" v-bind:src="user.profile_picture" alt="profile"> -->
-    <div>
-      Title:
-     <p> <input type="text" v-model="newPostParams.title" /> </p>
-      Description:
-      <p><input type="text" v-model="newPostParams.description" /> </p>
-      Photo:
-      <p><input type="file" v-on:change="setFile($event)" name="photo" /> </p>
-      Resort:
-     <p> <input type="text" v-model="newPostParams.resort" /> </p>
-     Runs taken:
-     <p> <input type="text" v-model="newPostParams.runs_taken" /> </p>
-    
-      <button class="btn btn-outline-primary" v-on:click="submit()" href="/posts">Submit</button>
+    <div class="sign-up-page">
+      <h1>New Post</h1>
+      <!-- <img class="current_thumb" v-bind:src="user.profile_picture" alt="profile"> -->
+      <div class="create-post">
+        Title:
+      <p> <input type="text" v-model="newPostParams.title" /> </p>
+        Description:
+        <p><input type="text" v-model="newPostParams.description" /> </p>
+        Photo:
+        <p><input type="file" v-on:change="setFile($event)" name="photo" /> </p>
+        Resort:
+      <p> <input type="text" v-model="newPostParams.resort" /> </p>
+      Runs taken:
+      <p> <input type="text" v-model="newPostParams.runs_taken" /> </p>
+      
+        <button class="btn btn-outline-primary" v-on:click="submit()" href="/posts">Submit</button>
+      </div>
     </div>
- 
-    
   </div>
 </template>
+
 <style>
 
-
+.sign-up-page{
+ height: 100%;
+}
+.footer {
+  position:absolute;
+  bottom: 0;
+  background-color: blue !important;
+} 
+.create-post{
+  height: 100%;
+}
 </style>

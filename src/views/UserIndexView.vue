@@ -54,9 +54,16 @@
      <a class="center btn btn-outline-primary" v-bind:href="`/users/${user.id}`" role="button">Edit Profile</a>
      </div>
      <br>
+   
      <br>
     </div>
   </div>
+    <br>
+     <br>
+     <br>
+     <br>
+     <br>
+   
 </template>
 
 <style>

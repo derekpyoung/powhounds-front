@@ -17,11 +17,11 @@
       showPost: function () {
 
         axios.get(`http://localhost:3000/posts/${this.$route.params.id}`).then(response => {
-          console.log(response.data)
+          // console.log(response.data)
           this.post = response.data
           this.resort = this.post.resort 
           this.resort_query = this.resort.replace(/ +/g, "");
-          console.log( this.resort_query);
+          // console.log( this.resort_query);
           // console.log(this.resort);
           // this.freshSnowfall();
           this.getUser();
@@ -34,7 +34,7 @@
       getUser: function () {
         axios.get(`http://localhost:3000/users/${this.post.user_id}`).then(response => {
           this.user = response.data
-          console.log(this.user);
+          // console.log(this.user);
      
         })
       },
@@ -92,10 +92,10 @@
       </div>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><h6>Description:</h6> {{post.description}}</li>
-        <li class="list-group-item"><h6>Resort:</h6> {{post.resort.toUpperCase()}}</li>
-        <li class="list-group-item"><h6>Runs Taken:</h6> {{post.runs_taken}}</li>
-        <li class="list-group-item"><h6>SnowFall:</h6> {{ post.snow }}</li>
+        <li class="list-group-item"><h5>Description:</h5> {{post.description.toUpperCase()}}</li>
+        <li class="list-group-item"><h5>Resort:</h5> {{post.resort.toUpperCase()}}</li>
+        <li class="list-group-item"><h5>Runs Taken:</h5> {{post.runs_taken}}</li>
+        <li class="list-group-item"><h5>SnowFall:</h5> {{ post.snow }}</li>
       </ul>
       <div class="card-body">
          
